@@ -1,5 +1,6 @@
 <?php
 
+/* Função responsável por sanitizar inputs */
 function validate(array $fields) 
 {
    
@@ -25,4 +26,22 @@ function validate(array $fields)
     }
 
     return (object) $validate;
+}
+
+
+
+/* Resposável por validar se existe campos vazios no form*/
+function isEmpty() {
+
+    $request = request();
+
+    $empty = false;
+
+    foreach($request as $key => $value) {
+        if(empty($request[$key])) {
+            $empty = true;
+        }
+    }
+
+    return $empty;
 }

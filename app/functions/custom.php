@@ -20,3 +20,9 @@ function request()
 
     return $_GET;
 }
+
+
+function redirect($target)
+{
+  return header("Location:/?page={$target}");
+}
